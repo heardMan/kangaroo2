@@ -82,7 +82,9 @@ var defaultMap = function () {
     var map = new google.maps.Map(
         document.getElementById('map'), { zoom: 8, center: lax });
     // The marker, positioned at lax
-    var marker = new google.maps.Marker({ position: lax, map: map });
+    //var marker = new google.maps.Marker({ position: lax, map: map });
+    newMarker(lax, map, "LAX Here");
+    addSomePostMArkers(map);
 }
 $(document).ready(function () {
     defaultMap();
