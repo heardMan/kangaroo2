@@ -7,12 +7,12 @@ var initMap = function (position) {
     //handle GPS coordinates from geolocation function if they exist
     if (position) {
         //assign user ltaitude and longitude to variables
-        var latitude = position.coords.latitude
-        var longitude = position.coords.longitude
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
         //set coordinates for user position
         var userPosition = {lat: latitude, lng: longitude};
         //create new google Map and set center to user's location
-        var map = new google.maps.Map(document.getElementById('map'), { zoom: 8, center: userPosition });
+        var map = new google.maps.Map(document.getElementById('map'), { zoom: 10, center: userPosition });
         // creat a new marker indicating the the users location
         newMarker(userPosition, map, "You are Here");
         //write user Latitude to local storage
@@ -21,12 +21,13 @@ var initMap = function (position) {
         window.localStorage.setItem("userLng", longitude);
     } else {
         //create new google Map and set center to LAX's location
-        var map = new google.maps.Map(document.getElementById('map'), { zoom: 8, center: lax });
+        var map = new google.maps.Map(document.getElementById('map'), { zoom: 10, center: lax });
     }
     // add LAX marker
     newMarker(lax, map, "LAX Here");
     // add markers for posts in the database
     addPostsToMap(map);
+    return map;
 }
 
 function newMarker(pos, map, content) {
@@ -68,4 +69,6 @@ $(document).ready(function () {
     initMap();
     //display map centered ate user's location
     navigator.geolocation.getCurrentPosition(initMap);
+
+    
 });
