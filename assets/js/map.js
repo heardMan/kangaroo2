@@ -50,7 +50,8 @@ function addSomePostMArkers(mapa){
             var longitude = parseFloat(post.lng);
             var position = { lat: latitude, lng: longitude };
             console.log(position);
-            newMarker(position, mapa, "post");
+            var content = "<div><p>Name: "+post.userName+"</p><p>Date: "+post.departureDate+"</p><p>Contact: "+post.contactInfo+"</p></div>";
+            newMarker(position, mapa, content);
              
           });
 
