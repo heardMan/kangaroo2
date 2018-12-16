@@ -17,7 +17,7 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- side Menu CSS -->
-    <link rel="stylesheet" href="./assets/css/simple-sidebar.css" />
+    <!-- <link rel="stylesheet" href="./assets/css/simple-sidebar.css" /> -->
     <!-- main Style Sheet -->
     <link rel="stylesheet" href="./assets/css/style.css" />
 
@@ -25,69 +25,36 @@
 </head>
 
 <body>
-       
-
         <div class="navbar-fixed">
                 <nav class="blue">
                   <div class="nav-wrapper">
-                        <a href="#menu-toggle" class="vertical-align" id="side-menu-toggle"><i class="fas fa-bars"></i></a>
+                    <a href="#" id="menu-toggle" class=" blue"><i class="fas fa-bars"></i></a>    
                     <a href="#!" class="brand-logo">Kangaroo Carpool</a>
                     <ul class="right hide-on-med-and-down">
                       <li><a href="#">Register</a></li>
                       <li><a href="#">Log-In</a></li>
+                      <li><a class="new-post modal-trigger" href="#modal1">New Post</a></li>
                     </ul>
                   </div>
                 </nav>
               </div>
+
               <ul id="slide-out" class="sidenav">
-                    <li><div class="user-view">
-                      <div class="background">
-                            <a href="#!" class="brand-logo">Kangaroo Carpool</a>
-                        <!-- <img src="images/office.jpg"> -->
-                      </div>
-                      <!-- <a href="#user"><img class="circle" src="images/yuna.jpg"></a> -->
-                      <a href="#name"><span class="white-text name">John Doe</span></a>
-                      <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
-                    </div></li>
-                    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-                    <li><a href="#!">Second Link</a></li>
+                    <li><a href="#!"><div>
+                            <i class="fas fa-bars btn" id="closeMenu"></i>Kangaroo Carpool
+                    </div></a></li>
                     <li><div class="divider"></div></li>
-                    <li><a class="subheader">Subheader</a></li>
-                    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-                  </ul>
-                  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    
-
-    <div id="wrapper" >
-
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Kangaroo Carpool
-                    </a>
-                </li>
-                <li>
-                    <a id="pull" class="waves-effect waves-light btn modal-trigger" href="#modal1"> Post Request</a>
-                </li>
-                
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
-
+                    <li><a class="new-post waves-effect waves-light modal-trigger" href="#modal1">New Post</a></li>
+              </ul>
         <!-- Page Content -->
         <div id="page-content-wrapper" class="blue-grey lighten-3">
-            <div class="container ">
-
+            <div class="container blue-grey lighten-3">
+                
                 <!--The div element for the map -->
-                <div id="map" class="mt-4"></div>
-                <!-- /#wrapper -->
-
-
+                <div id="map"></div>
+                
 
                 <!-- modal -->
-                <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
                 <div id="modal1" class="modal">
                         <div class="modal-content">
                                 <form id="form">
@@ -95,30 +62,25 @@
                                             <div class="col">
                                                 <label for="exampleFormControlInput1">Name</label>
                                                 <input id="newPostName" type="text" class="form-control" placeholder="">
-                    
                                             </div>
-                    
+                                            <div class="col">
+                                                    <label for="exampleFormControlInput1">Name</label>
+                                                    <input id="newPostName" type="text" class="form-control" placeholder="">
+                                                </div>
                                             <div class="col">
                                                 <label for="exampleFormControlInput1">Phone Number</label>
                                                 <input id="newPostPhone" type="number" class="form-control" placeholder="">
-                    
                                             </div>
-                    
                                             <div class="col">
                                                 <label for="exampleFormControlInput1"> Departure Date</label>
                                                 <input id="newPostDate" type="text" class="form-control datepicker" placeholder="">
-                                                
                                             </div>
-                    
-                                            <div class="col">
-                    
-                                                <button id="submitNewPost" type="button" href="#!" class="modal-close waves-effect waves-green btn-flat">Submit</button>
-                                            </div>
+                                            
                                         </div>
                                     </form>
                         </div>
                         <div class="modal-footer">
-                          <!-- <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a> -->
+                            <a id="submitNewPost"  href="#!" class="modal-close waves-effect waves-green btn-flat">Submit</a>
                         </div>
                       </div>
                 

@@ -1,5 +1,9 @@
+#page-content-wrapper{
+    margin-top: 1em;
+    padding-top: 1em;
+}
 #map {
-    margin-top: 1.5em;
+    margin-top: 1em;
     height: 600px;  /* The height is 400 pixels */
     width: 80%;  /* The width is the width of the web page */
    }
@@ -10,3 +14,11 @@
     margin: 0em 1em 0em 1em;
 }
 #modal1 { width: 75% !important ; height: 80% !important ; }
+
+#closeMenu{
+    margin: 0em .5em 0em 0em;
+    size: 2em !important;
+}
+#menu-toggle{
+    margin: 0em 1em 0em 1em;
+}

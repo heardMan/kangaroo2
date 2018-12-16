@@ -5,14 +5,23 @@ $("#side-menu-toggle").click(function (e) {
     $("#wrapper").toggleClass("toggled");
 });
 
+$("#menu-toggle").click(function(e){
+    e.preventDefault();
+    $('.sidenav').sidenav("open");
+});
 
 $('.datepicker').datepicker();
 
 $('.sidenav').sidenav();
 
-$("#pull").click(function () {
+$(".new-post").click(function () {
     $('.modal').modal();
     $("#wrapper").toggleClass("toggled");
+});
+
+$("#closeMenu").click(function(){
+    $('.sidenav').sidenav("close");
+    
 });
 
 function writeNewPost(name, date, contact) {
