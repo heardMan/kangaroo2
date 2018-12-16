@@ -25,83 +25,106 @@
 </head>
 
 <body>
-        <div class="navbar-fixed">
-                <nav class="blue">
-                  <div class="nav-wrapper">
-                    <a href="#" id="menu-toggle" class=" blue"><i class="fas fa-bars"></i></a>    
-                    <a href="#!" class="brand-logo">Kangaroo Carpool</a>
-                    <ul class="right hide-on-med-and-down">
-                      <li><a href="#">Register</a></li>
-                      <li><a href="#">Log-In</a></li>
-                      <li><a class="new-post modal-trigger" href="#modal1">New Post</a></li>
-                    </ul>
-                  </div>
-                </nav>
-              </div>
 
-              <ul id="slide-out" class="sidenav">
-                    <li><a href="#!"><div>
-                            <i class="fas fa-bars btn" id="closeMenu"></i>Kangaroo Carpool
-                    </div></a></li>
-                    <li><div class="divider"></div></li>
-                    <li><a class="new-post waves-effect waves-light modal-trigger" href="#modal1">New Post</a></li>
-              </ul>
-        <!-- Page Content -->
-        <div id="page-content-wrapper" class="blue-grey lighten-3">
-            <div class="container blue-grey lighten-3">
-                
-                <!--The div element for the map -->
-                <div id="map"></div>
-                
+    <!-- navbar -->
+    <div class="navbar-fixed">
+        <nav class="blue">
+            <div class="nav-wrapper">
+                <a href="#" id="menu-toggle" class=" blue"><i class="fas fa-bars"></i></a>
+                <a href="#!" class="brand-logo">Kangaroo Carpool</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#">Register</a></li>
+                    <li><a href="#">Log-In</a></li>
+                    <li><a class="new-post modal-trigger" href="#modal1">New Post</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- navbar -->
 
-                <!-- modal -->
-                <div id="modal1" class="modal">
-                        <div class="modal-content">
-                                <form id="form">
-                                        <div class="form-row">
-                                            <div class="col">
-                                                <label for="exampleFormControlInput1">Name</label>
-                                                <input id="newPostName" type="text" class="form-control" placeholder="">
-                                            </div>
-                                            <div class="col">
-                                                    <label for="exampleFormControlInput1">Name</label>
-                                                    <input id="newPostName" type="text" class="form-control" placeholder="">
-                                                </div>
-                                            <div class="col">
-                                                <label for="exampleFormControlInput1">Phone Number</label>
-                                                <input id="newPostPhone" type="number" class="form-control" placeholder="">
-                                            </div>
-                                            <div class="col">
-                                                <label for="exampleFormControlInput1"> Departure Date</label>
-                                                <input id="newPostDate" type="text" class="form-control datepicker" placeholder="">
-                                            </div>
-                                            
-                                        </div>
-                                    </form>
+    <!-- side Menu -->
+    <ul id="slide-out" class="sidenav">
+        <li><a href="#!">
+                <div>
+                    <i class="fas fa-bars btn" id="closeMenu"></i>Kangaroo Carpool
+                </div>
+            </a></li>
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li><a class="new-post waves-effect waves-light modal-trigger" href="#modal1">New Post</a></li>
+    </ul>
+    <!-- side Menu -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper" class="blue-grey lighten-3">
+
+        <!-- main Content Container -->
+        <div class="container blue-grey lighten-3">
+
+            <!--map Container -->
+            <div id="map"></div>
+            <!--map Container -->
+
+        </div>
+         <!-- main Content Container -->
+
+    </div>
+    <!-- Page Content -->
+
+    <!-- new Post Modal-->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <form id="form">
+                <div class="form-row">
+                    <div class="col">
+                        <label for="exampleFormControlInput1">Name</label>
+                        <input id="newPostName" type="text" class="form-control" placeholder="">
+                    </div>
+                    <div class="col">
+                            <label for="exampleFormControlInput1">Origin</label>
+                            <input id="newPostOrigin" type="text" class="form-control" placeholder="Defaults to browser location">
                         </div>
-                        <div class="modal-footer">
-                            <a id="submitNewPost"  href="#!" class="modal-close waves-effect waves-green btn-flat">Submit</a>
-                        </div>
-                      </div>
-                
-                
-                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmx7yVmK_G-p82UqJU_7qe57TGOGkmuwg&callback=initMap">
-                </script>
-                <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
-                <script>
-                    // Initialize Firebase
-                    var config = {
-                        apiKey: "AIzaSyDPnurbRg4ZdRtQJJ9SMyuU1tdMB0u-UVM",
-                        authDomain: "kangarookarpool.firebaseapp.com",
-                        databaseURL: "https://kangarookarpool.firebaseio.com",
-                        projectId: "kangarookarpool",
-                        storageBucket: "kangarookarpool.appspot.com",
-                        messagingSenderId: "94940851528"
-                    };
-                    firebase.initializeApp(config);
-                </script>
-                <script type="text/javascript" src="./assets/js/main.js"></script>
-                <script type="text/javascript" src="./assets/js/map.js"></script>
+                    <div class="col">
+                        <label for="exampleFormControlInput1">Phone Number</label>
+                        <input id="newPostPhone" type="number" class="form-control" placeholder="">
+                    </div>
+                    <div class="col">
+                        <label for="exampleFormControlInput1"> Departure Date</label>
+                        <input id="newPostDate" type="text" class="form-control datepicker" placeholder="">
+                    </div>
+
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <a id="submitNewPost" href="#!" class="modal-close waves-effect waves-green btn-flat">Submit</a>
+        </div>
+    </div>
+    <!-- new Post Modal-->
+
+    <!-- google MAPs API -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmx7yVmK_G-p82UqJU_7qe57TGOGkmuwg">
+    </script><!-- &callback=initMap -->
+    <!-- google MAPs API -->
+
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDPnurbRg4ZdRtQJJ9SMyuU1tdMB0u-UVM",
+            authDomain: "kangarookarpool.firebaseapp.com",
+            databaseURL: "https://kangarookarpool.firebaseio.com",
+            projectId: "kangarookarpool",
+            storageBucket: "kangarookarpool.appspot.com",
+            messagingSenderId: "94940851528"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <!-- firebase -->
+    <script type="text/javascript" src="./assets/js/main.js"></script>
+    <script type="text/javascript" src="./assets/js/map.js"></script>
 
 </body>
 
