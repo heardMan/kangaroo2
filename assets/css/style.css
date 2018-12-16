@@ -1,0 +1,12 @@
+#map {
+    margin-top: 1.5em;
+    height: 600px;  /* The height is 400 pixels */
+    width: 80%;  /* The width is the width of the web page */
+   }
+/* .hide{
+       display: none;
+   } */
+#side-menu-toggle{
+    margin: 0em 1em 0em 1em;
+}
+#modal1 { width: 75% !important ; height: 80% !important ; }
