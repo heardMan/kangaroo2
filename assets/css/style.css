@@ -1,24 +1,23 @@
-#page-content-wrapper{
-    margin-top: 1em;
-    padding-top: 1em;
+.container{
+    margin-top: 2em;
+    width: 100%;
+    padding: 1em 0em 1em 0em;
 }
+
 #map {
-    margin-top: 1em;
-    height: 600px;  /* The height is 400 pixels */
-    width: 80%;  /* The width is the width of the web page */
-   }
-/* .hide{
-       display: none;
-   } */
-#side-menu-toggle{
-    margin: 0em 1em 0em 1em;
+    height: 400px;
 }
-#modal1 { width: 75% !important ; height: 80% !important ; }
+
+#modal1 { 
+    width: 75% !important ;
+    height: 100% !important ;
+}
 
 #closeMenu{
     margin: 0em .5em 0em 0em;
     size: 2em !important;
 }
+
 #menu-toggle{
     margin: 0em 1em 0em 1em;
 }

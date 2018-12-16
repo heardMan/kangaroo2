@@ -1,70 +1,55 @@
-function getCoordinates(query) {
-    $.ajax({
-        url: 'https://www.mapquestapi.com/geocoding/v1/address?key=oJemIAUX2z50LZNB78Pv7gEpOJ6GJ0ZE&inFormat=kvp&outFormat=json&location=' + query + '&thumbMaps=false',
-        type: 'GET',
-
-        dataType: 'json',
-        success: function (response) {
-            var lat = response.results[0].locations[0].latLng.lat;
-            var long = response.results[0].locations[0].latLng.lng;
-            var coordinates = { latitude: lat, longitude: long }
-            makeSearchMap(lat, long);
-            console.log(response.results[0].locations);
-            console.log(lat);
-            console.log(long);
-            return coordinates;
-        },
-        error: function (request, error) {
-            console.log("Aw, Shit!!!")
-        }
-    });
-}
-
+//DEFINE FUNCTIONS
+//write post to database
 function writeNewPost(name, date, contact, latitude, longitude) {
+    //create new child key
     var newPostKey = firebase.database().ref().child('posts').push().key;
-    
-    var userLat = latitude;
-    var userLng = longitude;
+    //set post data template
     var postData = {
         postKey: newPostKey,
         userName: name,
         departureDate: date,
         contactInfo: contact,
-        lat: userLat,
-        lng: userLng
+        lat: latitude,
+        lng: longitude
     };
-    var newPostKey = firebase.database().ref().child('posts').push().key;
+    //create updates object
     var updates = {};
+    //set updates object data
     updates['/posts/' + newPostKey] = postData;
+    //update and return update object
     return firebase.database().ref().update(updates);
 }
 
 function createNewPost() {
+    //register on click for new post submit button
     $("#submitNewPost").on("click", function (e) {
+        //prevent any default action that may occur
         e.preventDefault();
+        //create input value variables to pull data from form
         var postName = $("#newPostName").val();
         var postDate = $("#newPostDate").val();
         var postOrigin = $("#newPostOrigin").val();
         var postContact = $("#newPostPhone").val();
+        //retrieve coordinates for origin location if not blank
         $.ajax({
+            //call map quest api for coordinates
             url: 'https://www.mapquestapi.com/geocoding/v1/address?key=oJemIAUX2z50LZNB78Pv7gEpOJ6GJ0ZE&inFormat=kvp&outFormat=json&location=' + postOrigin + '&thumbMaps=false',
             type: 'GET',
-
             dataType: 'json',
             success: function (response) {
-
+                
                 if (!postOrigin) {
+                    //set latitude and longitude values if post origin is left blank
                     var latitude = window.localStorage.getItem("userLat");
                     var longitude = window.localStorage.getItem("userLng");
                 } else {
+                    //set latitude and longitude values from API
                     var latitude = response.results[0].locations[0].latLng.lat;
-                var longitude = response.results[0].locations[0].latLng.lng;
-                    
-                }
+                    var longitude = response.results[0].locations[0].latLng.lng;
 
-                
+                }
+                //write new post to database
                 writeNewPost(postName, postDate, postContact, latitude, longitude);
-                console.log(response.results[0].locations);
                 console.log(latitude);
                 console.log(longitude);
 
@@ -73,44 +58,43 @@ function createNewPost() {
                 alert("Request: " + JSON.stringify(request));
             }
         });
-        //writeNewPost(postName, postDate, postContact);
+        //clear form inputs
         $("#newPostName").val("");
         $("#newPostDate").val("");
         $("#newPostOrigin").val("");
         $("#newPostPhone").val("");
 
-
     })
 
 }
 
+//RUN FUNCTIONS
 $(document).ready(function () {
-    ///Menu Toggle Script
-    $("#side-menu-toggle").click(function (e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
+    //register Materialize Components with jQuery
+    $('.dropdown-trigger').dropdown();
+    $('.datepicker').datepicker();
+    $('select').formSelect();
+    $('.sidenav').sidenav();
 
+    // register menu-toggle on click -- opens side nav
     $("#menu-toggle").click(function (e) {
         e.preventDefault();
         $('.sidenav').sidenav("open");
     });
 
-    $('.datepicker').datepicker();
+    // register close-menu on click -- closes side nav
+    $("#closeMenu").click(function () {
+        $('.sidenav').sidenav("close");
+    });
 
-    $('.sidenav').sidenav();
-
+    // register new-post on click -- opens form modal
     $(".new-post").click(function () {
         $('.modal').modal();
         $("#wrapper").toggleClass("toggled");
-    });
-
-    $("#closeMenu").click(function () {
         $('.sidenav').sidenav("close");
-
     });
 
+    // initiate create new posts submit button and logic
     createNewPost();
-
 
 });
