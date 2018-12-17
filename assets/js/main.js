@@ -37,7 +37,7 @@ function createNewPost() {
             type: 'GET',
             dataType: 'json',
             success: function (response) {
-                
+
                 if (!postOrigin) {
                     //set latitude and longitude values if post origin is left blank
                     var latitude = window.localStorage.getItem("userLat");
@@ -67,6 +67,12 @@ function createNewPost() {
     })
 
 }
+ function nextCarouselSlide(){
+     $('#instructions').click(function(){
+        $('.carousel.carousel-slider').carousel("next");
+     });
+ };
+
 
 //RUN FUNCTIONS
 $(document).ready(function () {
@@ -75,6 +81,12 @@ $(document).ready(function () {
     $('.datepicker').datepicker();
     $('select').formSelect();
     $('.sidenav').sidenav();
+    $('.carousel').carousel();
+    $('.carousel.carousel-slider').carousel({
+        fullWidth: true,
+        indicators: true,
+        duration: '500'
+      });
 
     // register menu-toggle on click -- opens side nav
     $("#menu-toggle").click(function (e) {
@@ -96,5 +108,6 @@ $(document).ready(function () {
 
     // initiate create new posts submit button and logic
     createNewPost();
+    nextCarouselSlide();
 
 });

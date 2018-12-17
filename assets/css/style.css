@@ -6,6 +6,7 @@
 
 #map {
     height: 400px;
+    margin-bottom: 0;
 }
 
 #modal1 { 
@@ -20,4 +21,7 @@
 
 #menu-toggle{
     margin: 0em 1em 0em 1em;
+}
+#instructions{
+    height: 100px !important;
 }
